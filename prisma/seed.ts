@@ -1,12 +1,12 @@
-import { hashPassword } from "@/lib/auth";
+// import { hashPassword } from "@/lib/auth";
 import { db } from "@/lib/db";
-import {TaskStatus } from "@prisma/client";
+import {TASK_STATUS } from "@prisma/client";
 
 const getRandomTaskStatus = () => {
     const statuses = [
-        TaskStatus.COMPLETED,
-        TaskStatus.NOT_STARTED,
-        TaskStatus.STARTED,
+        TASK_STATUS.COMPLETED,
+        TASK_STATUS.NOT_STARTED,
+        TASK_STATUS.STARTED,
     ];
     return statuses[Math.floor(Math.random() * statuses.length)];
 };
