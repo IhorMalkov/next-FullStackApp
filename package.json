@@ -44,6 +44,6 @@
     "tsconfig-paths": "^3.14.2"
   },
   "prisma": {
-    "seed": "ts-node --transpileOnly prisma/seed.ts"
+    "seed": "ts-node -P tsconfig-seed.json -r tsconfig-paths/register --transpileOnly prisma/seed.ts"
   }
 }

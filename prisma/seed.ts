@@ -1,6 +1,6 @@
-// import { hashPassword } from "@/lib/auth";
-import { db } from "@/lib/db";
-import {TASK_STATUS } from "@prisma/client";
+//import { hashPassword } from "../lib/auth";
+import { db } from "../lib/db";
+import { TASK_STATUS } from "@prisma/client";
 
 const getRandomTaskStatus = () => {
     const statuses = [
@@ -19,8 +19,8 @@ async function main() {
             email: "user@email.com",
             firstName: "User",
             lastName: "Person",
-            password: await hashPassword("password"),
-            project: {
+            password: "password",
+            projects: {
                 create: new Array(5).fill(1).map((_, i) => ({
                     name: `Project ${i}`,
                     due: new Date(2022, 11, 25),
@@ -28,12 +28,12 @@ async function main() {
             },
         },
         include: {
-            project: true,
+            projects: true,
         },
     });
 
     const tasks = await Promise.all(
-        user.project.map((project) =>
+        user.projects.map((project) =>
             db.task.createMany({
                 data: new Array(10).fill(1).map((_, i) => {
                     return {
