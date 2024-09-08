@@ -1,5 +1,3 @@
-import {Type} from "react-feather";
-
 const fetcher = async ({url,method,body, json = true}) => {
     const res = await fetch(url,
         {
@@ -19,12 +17,12 @@ const fetcher = async ({url,method,body, json = true}) => {
         const data = await res.json();
         return data.data;
     }
+}
 
-    export const register = (user) => {
-        return fetcher({url: '/api/register', method:'POST', body: user});
-    }
+export const register = (user) => {
+    return fetcher({url: '/api/register', method:'POST', body: user});
+}
 
-    export const signin = (user) => {
-        return fetcher({url: '/api/signin', method:'POST', body: user});
-    }
+export const signin = (user) => {
+    return fetcher({url: '/api/signin', method:'POST', body: user});
 }
