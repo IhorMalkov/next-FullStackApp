@@ -5,7 +5,7 @@ import { db } from "./db";
 export const hashedPassword = (password: string) => {
     return bcrypt.hash(password, 10);
 }
-const comparePassword = (password: string, hashedPassword: string) => {
+export const comparePassword = (password: string, hashedPassword: string) => {
     return bcrypt.compare(password, hashedPassword);
 }
 
