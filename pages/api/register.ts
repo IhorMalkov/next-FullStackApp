@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { db } from "@/lib/db";
-import { createJWT, hashedPassword } from "@/lib/auth";
+import { createJWT, hashPassword } from "@/lib/auth";
 import { serialize } from "cookie";
 
 export default async function register(
@@ -11,7 +11,7 @@ export default async function register(
         const user = await db.user.create({
             data: {
                 email: req.body.email,
-                password: await hashedPassword(req.body.password),
+                password: await hashPassword(req.body.password),
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
             },
