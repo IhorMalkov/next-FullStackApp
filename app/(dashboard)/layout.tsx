@@ -12,6 +12,7 @@ export default function AuthRootLayout({children}: {children: ReactNode}) {
             <Sidebar/>
             {children}
         </GlassPane>
+        <div id="modal"></div>
         </body>
         </html>
     )

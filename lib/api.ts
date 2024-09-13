@@ -29,7 +29,7 @@ export const signin = (user) => {
 
 export const createNewProject = (name) => {
     return fetcher({
-        url: "/api/project",
+        url: "/api/projects",
         method: "POST",
         body: { name },
     });
